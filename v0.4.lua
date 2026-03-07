@@ -19,14 +19,14 @@ local delete = rs.MenuToys.DestroyToy
 local r1 = rs.PlayerEvents.StickyPartEvent
 
 env.vssky = env.vssky or {}
-env.vssky.SpawnToyWarning = true
+vssky.SpawnToyWarning = true
 
 function API:GetVersion()
 	return string.sub(string.match("FTAP-API/v0.4.lua", "[^/\\]+$"),2,4)
 end
 function API:SetPerson(t, arg2)
 	if t == 1 then
-		env.vssky.SecondPersonToggle = false
+		vssky.SecondPersonToggle = false
 		local camera = workspace.CurrentCamera
 		lp.CameraMode = Enum.CameraMode.LockFirstPerson
 		lp.CameraMaxZoomDistance = 0.5
@@ -37,12 +37,12 @@ function API:SetPerson(t, arg2)
 	elseif t == 2 then
 		if typeof(arg2) == "Instance" then
 			targetted = arg2
-			env.vssky.SecondPersonToggle = true
+			vssky.SecondPersonToggle = true
 		else
 			error("Only instances are supported!")
 		end
 	elseif t == 3 then
-		env.vssky.SecondPersonToggle = false
+		vssky.SecondPersonToggle = false
 		lp.CameraMode = Enum.CameraMode.Classic
 		lp.CameraMaxZoomDistance = arg2 or 100
 	end
@@ -50,7 +50,7 @@ end
 
 conn = rss.PreRender:Connect(function()
 	local camera = workspace.CurrentCamera
-	if env.vssky.SecondPersonToggle == true then
+	if vssky.SecondPersonToggle == true then
 		if onced == false then
 			active = true
 			onced = true
@@ -200,7 +200,7 @@ function API:GetSpawnedInToysFolder(plr)
     end
 end
 function API:SpawnToy(toyname,cf)
-	if env.vssky.SpawnToyWarning == true then
+	if vssky.SpawnToyWarning == true then
 		warn('SpawnToy is currently in beta and may not work as expected. You can disable this warning by running "getgenv().vssky.SpawnToyWarning = false" at the start of your script.')
 	end
 	task.spawn(function()
@@ -244,3 +244,4 @@ function API:Ragdoll(t)
 end
 
 return API
+
