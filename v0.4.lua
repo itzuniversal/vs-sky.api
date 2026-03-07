@@ -201,7 +201,7 @@ function API:GetSpawnedInToysFolder(plr)
 end
 function API:SpawnToy(toyname,cf)
 	if vssky.SpawnToyWarning == true then
-		warn('SpawnToy is currently in beta and may not work as expected. You can disable this warning by running "getgenv().vssky.SpawnToyWarning = false" at the start of your script.')
+		warn('SpawnToy is currently in beta and may not work as expected. You can disable this warning by running "vssky.SpawnToyWarning = false" at the start of your script.')
 	end
 	task.spawn(function()
 		spawnt:InvokeServer(toyname,cf,vector.create(0,138,0))
@@ -244,4 +244,5 @@ function API:Ragdoll(t)
 end
 
 return API
+
 
