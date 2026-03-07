@@ -18,6 +18,8 @@ local spawnt = rs.MenuToys.SpawnToyRemoteFunction
 local delete = rs.MenuToys.DestroyToy
 local r1 = rs.PlayerEvents.StickyPartEvent
 
+warn("f")
+
 env.vssky = env.vssky or {}
 vssky.SpawnToyWarning = true
 
@@ -244,5 +246,6 @@ function API:Ragdoll(t)
 end
 
 return API
+
 
 
