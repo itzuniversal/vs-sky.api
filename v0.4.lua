@@ -178,7 +178,7 @@ function API:SetNetworkOwner(instance : Instance)
 	if instance:IsA("Model") then
 		hitbox = API:GetHitbox(instance)
 	elseif instance.Parent:IsA("Model") then
-		hitbox = API:GetHitbox(instance.Parent)
+		hitbox = instance
 	end
 	local conn5
 	local flag
