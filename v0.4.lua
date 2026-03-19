@@ -22,7 +22,6 @@ env.vssky = env.vssky or {}
 vssky.SpawnToyWarning = true
 
 function API:GetVersion()
-	print("yo yo yo")
 	return "v0.4"
 end
 function API:SetPerson(t, arg2)
