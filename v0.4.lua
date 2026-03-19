@@ -22,7 +22,8 @@ env.vssky = env.vssky or {}
 vssky.SpawnToyWarning = true
 
 function API:GetVersion()
-	return string.sub(string.match("FTAP-API/v0.4.lua", "[^/\\]+$"),2,4)
+	print("yo yo yo")
+	return "v0.4"
 end
 function API:SetPerson(t, arg2)
 	if t == 1 then
