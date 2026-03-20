@@ -19,7 +19,6 @@ local delete = rs.MenuToys.DestroyToy
 local r1 = rs.PlayerEvents.StickyPartEvent
 
 env.vssky = env.vssky or {}
-vssky.SpawnToyWarning = true
 
 function API:GetVersion()
 	return "v0.4"
@@ -200,9 +199,6 @@ function API:GetSpawnedInToysFolder(plr)
     end
 end
 function API:SpawnToy(toyname,cf)
-	if vssky.SpawnToyWarning == true then
-		warn('SpawnToy is currently in beta and may not work as expected. You can disable this warning by running "vssky.SpawnToyWarning = false" at the start of your script.')
-	end
 	task.spawn(function()
 		spawnt:InvokeServer(toyname,cf,vector.create(0,138,0))
 	end)
