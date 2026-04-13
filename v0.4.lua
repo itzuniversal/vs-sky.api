@@ -202,11 +202,12 @@ function API:SpawnToy(toyname,cf)
 	task.spawn(function()
 		spawnt:InvokeServer(toyname,cf,vector.create(0,138,0))
 	end)
-	local conn
 	local flag
-	conn = API:GetSpawnedInToysFolder().ChildAdded:Connect(function(v)
-		flag = v
-		conn:Disconnect()
+	local conn; conn = workspace.DescendantAdded:Connect(function(v)
+		if v.Name == toyname then
+			flag = v
+			conn:Disconnect()
+		end
 	end)
 	while not flag do task.wait() end
 	return flag
